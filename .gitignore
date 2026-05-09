@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories (将来 Node を入れる場合に備えて)
+node_modules/
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Build outputs (将来用)
+dist/
+build/
+.cache/
+
+# Cloudflare Wrangler (将来用)
+.wrangler/

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chabi｜御社のAI活用 第1号事例を、一緒に作ります</title>
+  <meta name="description" content="AI導入支援とAIセミナー。ヒアリング起点 × 構造化 × AI実装の三本柱で、御社のAI活用を「事例」になるまで伴走します。" />
+
+  <!-- OGP -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Chabi｜御社のAI活用 第1号事例を、一緒に作ります" />
+  <meta property="og:description" content="AI導入支援とAIセミナー。ヒアリング起点 × 構造化 × AI実装の三本柱で、御社のAI活用を「事例」になるまで伴走します。" />
+  <meta property="og:url" content="https://chabi.jp/" />
+  <meta property="og:site_name" content="Chabi" />
+  <meta property="og:image" content="https://chabi.jp/og-image.png" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (inline SVG, "C" monogram) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231d88b8'/%3E%3Ctext x='50' y='73' font-family='-apple-system,BlinkMacSystemFont,sans-serif' font-size='68' font-weight='900' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: '#f1ebdd',
+            ink: '#0f0f0f',
+            accent: '#1d88b8',
+            'accent-dark': '#176f96',
+            muted: '#6b6b6b',
+            line: '#e6dfce',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            num: ['Inter', 'sans-serif'],
+          },
+          maxWidth: {
+            container: '1100px',
+          },
+          boxShadow: {
+            card: '0 6px 24px -8px rgba(15,15,15,0.10), 0 2px 6px -2px rgba(15,15,15,0.06)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Chabi",
+    "alternateName": "チャビ",
+    "url": "https://chabi.jp/",
+    "email": "jumpei_kondo@chabi.jp",
+    "description": "AI導入支援とAIセミナー。ヒアリング起点 × 構造化 × AI実装の三本柱で、AI活用を『事例』になるまで伴走する個人事業主のAIコンサルティング事業。",
+    "foundingDate": "2026-05",
+    "areaServed": "JP",
+    "knowsAbout": ["AI導入支援", "AIセミナー", "業務改善", "ChatGPT活用", "Notion活用"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --color-base: #f1ebdd;
+      --color-text: #0f0f0f;
+      --color-accent: #1d88b8;
+      --color-white: #ffffff;
+      --color-muted: #6b6b6b;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--color-text);
+      background: var(--color-base);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .num { font-family: 'Inter', sans-serif; font-feature-settings: 'tnum'; }
+    .heading { font-weight: 900; letter-spacing: -0.01em; }
+    /* Section anchor offset for sticky header */
+    section[id] { scroll-margin-top: 72px; }
+  </style>
+</head>
+<body class="bg-base text-ink">
+
+  <!-- Header (sticky, minimal) -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-base/80 border-b border-line">
+    <div class="max-w-container mx-auto px-5 md:px-8 h-[64px] flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2" aria-label="Chabi トップへ">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-md bg-accent text-white font-black">C</span>
+        <span class="heading text-lg tracking-wide">Chabi</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm">
+        <a href="#service" class="hover:text-accent transition">サービス</a>
+        <a href="#results" class="hover:text-accent transition">実績</a>
+        <a href="#about" class="hover:text-accent transition">代表について</a>
+        <a href="#contact" class="hover:text-accent transition">お問い合わせ</a>
+      </nav>
+      <a href="mailto:jumpei_kondo@chabi.jp?subject=Chabi%E7%84%A1%E6%96%99%E8%A8%BA%E6%96%AD%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"
+         class="hidden md:inline-flex items-center px-4 py-2 rounded-md bg-accent text-white text-sm font-bold hover:bg-accent-dark transition">
+        無料診断を予約
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="bg-base">
+    <div class="max-w-container mx-auto px-5 md:px-8 pt-16 pb-12 md:pt-28 md:pb-24">
+      <div class="max-w-3xl">
+        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-5 md:mb-6">AI CONSULTING ／ AI SEMINAR</p>
+        <h1 class="heading text-[32px] leading-[1.25] md:text-[56px] md:leading-[1.2]">
+          御社のAI活用 第1号事例を、<br />
+          一緒に作ります。
+        </h1>
+        <div class="mt-7 md:mt-9 space-y-2 text-base md:text-lg text-ink/80">
+          <p class="font-bold">AI導入支援 ／ AIセミナー</p>
+          <p>ヒアリング起点 <span class="text-accent font-bold">×</span> 構造化 <span class="text-accent font-bold">×</span> AI実装</p>
+        </div>
+
+        <div class="mt-9 md:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <a href="mailto:jumpei_kondo@chabi.jp?subject=Chabi%E7%84%A1%E6%96%99%E8%A8%BA%E6%96%AD%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"
+             class="inline-flex items-center justify-center min-h-[52px] px-7 rounded-md bg-accent text-white font-bold hover:bg-accent-dark transition shadow-card"
+             aria-label="無料診断を予約する（メール送信）">
+            無料診断を予約する
+            <svg class="ml-2 w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L13.586 11H3a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </a>
+          <a href="#service"
+             class="inline-flex items-center justify-center min-h-[52px] px-7 rounded-md border border-ink/20 text-ink font-bold hover:border-accent hover:text-accent transition">
+            サービス詳細を見る
+          </a>
+        </div>
+
+        <div class="mt-10 md:mt-14 flex items-center gap-3 text-xs md:text-sm text-muted">
+          <span class="inline-block w-8 h-px bg-muted/50"></span>
+          <span>千葉県拠点 ／ 全国オンライン対応 ／ 2026年5月開業</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service -->
+  <section id="service" class="bg-white">
+    <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
+      <div class="max-w-3xl">
+        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-3">SERVICE</p>
+        <h2 class="heading text-2xl md:text-4xl leading-tight">2本柱で、AI活用を<br class="md:hidden" />「事例」になるまで伴走します</h2>
+      </div>
+
+      <div class="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <!-- Card 1: Seminar -->
+        <article class="bg-base rounded-xl shadow-card p-7 md:p-10 flex flex-col">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">01</span>
+            <p class="text-sm font-bold text-accent">AI SEMINAR</p>
+          </div>
+          <h3 class="heading text-xl md:text-2xl leading-snug">実務者向け AIセミナー（全3回）</h3>
+          <p class="mt-4 text-ink/80 leading-relaxed">
+            セキュリティ → 4象限分類 → AI導入順序 の3回シリーズ。AI活用の前提条件から実装判断までを、現場で使える形で定着。
+          </p>
+          <div class="mt-6 pt-5 border-t border-line">
+            <p class="text-xs text-muted font-bold tracking-widest mb-1">対象</p>
+            <p class="text-sm text-ink">中小企業・自治体・個人事業主</p>
+          </div>
+        </article>
+
+        <!-- Card 2: Consulting -->
+        <article class="bg-base rounded-xl shadow-card p-7 md:p-10 flex flex-col">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">02</span>
+            <p class="text-sm font-bold text-accent">AI CONSULTING</p>
+          </div>
+          <h3 class="heading text-xl md:text-2xl leading-snug">導入後活用支援 AIコンサル</h3>
+          <p class="mt-4 text-ink/80 leading-relaxed">
+            「ChatGPTを導入したのに使われていない」を解消する伴走型コンサル。ヒアリングから実装まで、AI活用文化が根付くまで伴走します。
+          </p>
+          <div class="mt-6 pt-5 border-t border-line">
+            <p class="text-xs text-muted font-bold tracking-widest mb-1">対象</p>
+            <p class="text-sm text-ink">AI導入済 or 導入予定の中小企業・自治体</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="bg-base">
+    <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
+      <div class="max-w-3xl">
+        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-3">RESULTS</p>
+        <h2 class="heading text-2xl md:text-4xl leading-tight">実績｜数字で語る伴走の成果</h2>
+        <p class="mt-5 text-base md:text-lg text-ink/80">
+          米国の人材紹介事業者 ／ 採用業務のAI活用支援
+        </p>
+      </div>
+
+      <!-- Numbers -->
+      <div class="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+        <div class="bg-white rounded-xl shadow-card p-7 md:p-8">
+          <p class="num text-5xl md:text-6xl font-extrabold text-accent leading-none">-67<span class="text-3xl md:text-4xl align-top">%</span></p>
+          <p class="mt-4 text-sm font-bold text-ink">業務時間削減率</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-card p-7 md:p-8">
+          <p class="num text-4xl md:text-5xl font-extrabold text-accent leading-none">22.5h <span class="text-ink/40">→</span> 7.5h</p>
+          <p class="mt-4 text-sm font-bold text-ink">1週間の業務時間（実装後）</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-card p-7 md:p-8">
+          <p class="num text-5xl md:text-6xl font-extrabold text-accent leading-none">3<span class="text-3xl md:text-4xl align-top ml-1 font-sans">ヶ月</span></p>
+          <p class="mt-4 text-sm font-bold text-ink">実装完了までの期間</p>
+        </div>
+      </div>
+
+      <!-- Approach -->
+      <div class="mt-10 md:mt-14 bg-white rounded-xl shadow-card p-7 md:p-10">
+        <p class="text-xs font-bold tracking-widest text-muted mb-5">APPROACH</p>
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-4 md:gap-6">
+          <div class="text-center">
+            <p class="num text-3xl font-extrabold text-accent">01</p>
+            <p class="mt-2 heading text-base md:text-lg">ヒアリング起点</p>
+          </div>
+          <div class="text-center text-ink/30 text-2xl hidden md:block">→</div>
+          <div class="text-center">
+            <p class="num text-3xl font-extrabold text-accent">02</p>
+            <p class="mt-2 heading text-base md:text-lg">構造化</p>
+          </div>
+          <div class="text-center text-ink/30 text-2xl hidden md:block">→</div>
+          <div class="text-center">
+            <p class="num text-3xl font-extrabold text-accent">03</p>
+            <p class="mt-2 heading text-base md:text-lg">AI実装</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-8 text-sm text-muted">
+        ケーススタディ詳細を読む（公開準備中：5月末公開予定）
+      </p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="bg-white">
+    <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-3">ABOUT</p>
+        <h2 class="heading text-2xl md:text-4xl leading-tight">Chabi 代表について</h2>
+
+        <p class="mt-8 text-base md:text-lg text-ink/85 leading-loose">
+          AI導入支援 ／ AIセミナー講師 ／ 元自治体7年（業務改善）<br class="hidden md:block" />
+          ／ マーケティングコンサルタント ／ MBA<br class="hidden md:block" />
+          ／ Google AI Professionals 認定 ／ Notion Essentials 認定
+        </p>
+      </div>
+
+      <!-- Strength triangle -->
+      <div class="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="bg-base rounded-xl p-7 md:p-8 shadow-card">
+          <div class="flex items-center gap-2 text-accent">
+            <span class="text-2xl leading-none">▼</span>
+            <p class="heading text-lg">ヒアリング起点</p>
+          </div>
+          <p class="mt-4 text-ink/80 leading-relaxed">
+            現場の暗黙知を引き出し、課題の本質を言語化する。自治体7年で磨いた対話力。
+          </p>
+        </article>
+        <article class="bg-base rounded-xl p-7 md:p-8 shadow-card">
+          <div class="flex items-center gap-2 text-accent">
+            <span class="text-2xl leading-none">▼</span>
+            <p class="heading text-lg">構造化</p>
+          </div>
+          <p class="mt-4 text-ink/80 leading-relaxed">
+            散らかった業務を整理し、AIで扱える形に落とし込む。MBA × マーケティングコンサルタントの実務。
+          </p>
+        </article>
+        <article class="bg-base rounded-xl p-7 md:p-8 shadow-card">
+          <div class="flex items-center gap-2 text-accent">
+            <span class="text-2xl leading-none">▼</span>
+            <p class="heading text-lg">AI実装</p>
+          </div>
+          <p class="mt-4 text-ink/80 leading-relaxed">
+            設計で終わらせず、現場で動く形まで伴走する。Google AI / Notion 認定 ＋ 米国人材紹介事業者でのAI実装事例。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-base">
+    <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-3">CONTACT</p>
+        <h2 class="heading text-2xl md:text-4xl leading-tight">まずは無料診断から、お気軽に</h2>
+        <p class="mt-6 text-base md:text-lg text-ink/85 leading-relaxed">
+          御社のAI活用 第1号事例を作るための入口は「無料診断」です。<br />
+          30分のオンライン or 対面ヒアリングで、御社の業務とAI活用の親和性を一緒に見極めます。
+        </p>
+
+        <div class="mt-9 md:mt-12">
+          <a href="mailto:jumpei_kondo@chabi.jp?subject=Chabi%E7%84%A1%E6%96%99%E8%A8%BA%E6%96%AD%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"
+             class="inline-flex items-center justify-center min-h-[60px] px-10 rounded-md bg-accent text-white font-bold text-lg hover:bg-accent-dark transition shadow-card"
+             aria-label="無料診断について、メールで問い合わせる">
+            メールで問い合わせる
+            <svg class="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L13.586 11H3a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </a>
+          <p class="mt-4 text-sm text-muted">
+            jumpei_kondo@chabi.jp
+          </p>
+        </div>
+
+        <div class="mt-10 md:mt-12 text-xs md:text-sm text-muted space-y-1">
+          <p>※ 返信は1営業日以内</p>
+          <p>※ 対面エリア：メインは千葉県／北海道から沖縄まで全国対応します（交通費は応相談）</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-ink text-white">
+    <div class="max-w-container mx-auto px-5 md:px-8 py-10 md:py-14">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-md bg-accent text-white font-black">C</span>
+            <span class="heading text-lg">Chabi（チャビ）</span>
+          </div>
+          <p class="mt-3 text-sm text-white/70">個人事業主｜2026年5月開業</p>
+          <p class="mt-1 text-sm text-white/70">chabi.jp</p>
+        </div>
+        <div class="text-sm text-white/60">
+          © 2026 Chabi
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
