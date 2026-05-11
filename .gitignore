@@ -31,3 +31,7 @@ build/
 
 # Cloudflare Wrangler (将来用)
 .wrangler/
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
