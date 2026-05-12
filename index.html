@@ -89,6 +89,16 @@
     .heading { font-weight: 900; letter-spacing: -0.01em; }
     /* Section anchor offset for sticky header */
     section[id] { scroll-margin-top: 72px; }
+
+    /* Brand monogram */
+    .chabi-monogram {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+    @media (max-width: 767px) {
+      .chabi-monogram { height: 24px; }
+    }
   </style>
 </head>
 <body class="bg-base text-ink">
@@ -96,8 +106,8 @@
   <!-- Header (sticky, minimal) -->
   <header class="sticky top-0 z-40 backdrop-blur bg-base/80 border-b border-line">
     <div class="max-w-container mx-auto px-5 md:px-8 h-[64px] flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2" aria-label="Chabi トップへ">
-        <span class="inline-flex items-center justify-center w-8 h-8 rounded-md bg-accent text-white font-black">C</span>
+      <a href="#top" class="flex items-center gap-2.5" aria-label="Chabi トップへ">
+        <img src="/assets/jp_monogram_icon.svg" alt="" class="chabi-monogram" aria-hidden="true" />
         <span class="heading text-lg tracking-wide">Chabi</span>
       </a>
       <nav class="hidden md:flex items-center gap-7 text-sm">
@@ -341,8 +351,10 @@
     <div class="max-w-container mx-auto px-5 md:px-8 py-10 md:py-14">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
-          <div class="flex items-center gap-2">
-            <span class="inline-flex items-center justify-center w-8 h-8 rounded-md bg-accent text-white font-black">C</span>
+          <div class="flex items-center gap-2.5">
+            <span class="inline-flex items-center justify-center bg-base rounded-md p-1.5">
+              <img src="/assets/jp_monogram_icon.svg" alt="" class="chabi-monogram" aria-hidden="true" />
+            </span>
             <span class="heading text-lg">Chabi（チャビ）</span>
           </div>
           <p class="mt-3 text-sm text-white/70">個人事業主｜2026年5月開業</p>
