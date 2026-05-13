@@ -128,7 +128,7 @@ git push
 ### 後日差し替え予定
 
 - [ ] `og:image`（現在は仮URL `https://chabi.jp/og-image.png`）
-- [ ] ケーススタディ詳細ページ（5月末公開予定 → `/cases/akri` などのパス）
+- [ ] ケーススタディ詳細ページ（5月末公開予定 → `/cases/recruiting-usa` などのパス・媒体名は伏せ字運用）
 - [ ] 代表者の実名公開（育休明けタイミングで）
 - [ ] favicon を SVG モノグラムから正規ロゴに
 
