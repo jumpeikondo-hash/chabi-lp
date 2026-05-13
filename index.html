@@ -87,6 +87,8 @@
     }
     .num { font-family: 'Inter', sans-serif; font-feature-settings: 'tnum'; }
     .heading { font-weight: 900; letter-spacing: -0.01em; }
+    /* Japanese-friendly line breaking: avoid breaking inside katakana words and clauses */
+    h1, h2, h3, p { word-break: keep-all; line-break: strict; overflow-wrap: break-word; }
     /* Section anchor offset for sticky header */
     section[id] { scroll-margin-top: 72px; }
 
@@ -163,7 +165,7 @@
     <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
       <div class="max-w-3xl">
         <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-3">SERVICE</p>
-        <h2 class="heading text-2xl md:text-4xl leading-tight">2本柱で、AI活用を<br class="md:hidden" />「事例」になるまで伴走します</h2>
+        <h2 class="heading text-2xl md:text-4xl leading-tight">2本柱で、AI活用を<br />「事例」になるまで伴走します</h2>
       </div>
 
       <div class="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -175,7 +177,7 @@
           </div>
           <h3 class="heading text-xl md:text-2xl leading-snug">実務者向け AIセミナー（全3回）</h3>
           <p class="mt-4 text-ink/80 leading-relaxed">
-            セキュリティ → 4象限分類 → AI導入順序 の3回シリーズ。AI活用の前提条件から実装判断までを、現場で使える形で定着。
+            セキュリティ → 4象限分類 → AI導入順序 の3回シリーズ。AI活用の前提条件から実装判断までを、現場で使える形で定着させます。
           </p>
           <div class="mt-6 pt-5 border-t border-line">
             <p class="text-xs text-muted font-bold tracking-widest mb-1">対象</p>
@@ -189,9 +191,9 @@
             <span class="inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">02</span>
             <p class="text-sm font-bold text-accent">AI CONSULTING</p>
           </div>
-          <h3 class="heading text-xl md:text-2xl leading-snug">導入後活用支援 AIコンサル</h3>
+          <h3 class="heading text-xl md:text-2xl leading-snug">導入後活用支援 AIコンサルティング</h3>
           <p class="mt-4 text-ink/80 leading-relaxed">
-            「ChatGPTを導入したのに使われていない」を解消する伴走型コンサル。ヒアリングから実装まで、AI活用文化が根付くまで伴走します。
+            「ChatGPTを導入したのに使われていない」を解消する伴走型コンサルティング。ヒアリングから実装まで、AI活用文化が根付くまで伴走します。
           </p>
           <div class="mt-6 pt-5 border-t border-line">
             <p class="text-xs text-muted font-bold tracking-widest mb-1">対象</p>
@@ -221,7 +223,7 @@
           <p class="mt-1 text-xs text-muted">150分 → 90分（事前準備・サマリー作成をAI化）</p>
         </div>
         <div class="bg-white rounded-xl shadow-card p-7 md:p-8">
-          <p class="num text-5xl md:text-6xl font-extrabold text-accent leading-none">10 <span class="text-ink/40">→</span> 16<span class="text-3xl md:text-4xl align-top ml-1 font-sans">件</span></p>
+          <p class="num text-4xl md:text-5xl font-extrabold text-accent leading-none whitespace-nowrap">10<span class="text-ink/40 mx-2">→</span>16<span class="text-2xl md:text-3xl align-top ml-1 font-sans">件</span></p>
           <p class="mt-4 text-sm font-bold text-ink">面談キャパ（週）</p>
           <p class="mt-1 text-xs text-muted">+6件／週・+288件／年（+60%）</p>
         </div>
@@ -280,8 +282,8 @@
 
         <p class="mt-8 text-base md:text-lg text-ink/85 leading-loose">
           AI導入支援 ／ AIセミナー講師 ／ 元自治体7年（業務改善）<br class="hidden md:block" />
-          ／ マーケティングコンサルタント ／ MBA<br class="hidden md:block" />
-          ／ Google AI Professionals 認定 ／ Notion Essentials 認定
+          マーケティングコンサルタント ／ MBA<br class="hidden md:block" />
+          Google AI Professionals 認定 ／ Notion Essentials 認定
         </p>
       </div>
 

@@ -1,6 +1,6 @@
 # Chabi 公式LP
 
-個人事業主のAIコンサル / AIセミナー事業「Chabi」の公式ランディングページ。
+個人事業主のAIコンサルティング / AIセミナー事業「Chabi」の公式ランディングページ。
 
 - **ドメイン**: [chabi.jp](https://chabi.jp/)
 - **公開先**: Cloudflare Pages（GitHub 連携）
