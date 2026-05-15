@@ -102,6 +102,9 @@
       .chabi-monogram { height: 24px; }
     }
   </style>
+
+  <!-- Tally form popup embed -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body class="bg-base text-ink">
 
@@ -118,10 +121,11 @@
         <a href="#about" class="hover:text-accent transition">代表について</a>
         <a href="#contact" class="hover:text-accent transition">お問い合わせ</a>
       </nav>
-      <a href="mailto:jumpei_kondo@chabi.jp?subject=Chabi%E7%84%A1%E6%96%99%E8%A8%BA%E6%96%AD%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"
-         class="hidden md:inline-flex items-center px-4 py-2 rounded-md bg-accent text-white text-sm font-bold hover:bg-accent-dark transition">
-        無料診断を予約
-      </a>
+      <button type="button"
+              data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+              class="hidden md:inline-flex items-center px-4 py-2 rounded-md bg-accent text-white text-sm font-bold hover:bg-accent-dark transition">
+        お問い合わせ
+      </button>
     </div>
   </header>
 
@@ -140,12 +144,13 @@
         </div>
 
         <div class="mt-9 md:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <a href="mailto:jumpei_kondo@chabi.jp?subject=Chabi%E7%84%A1%E6%96%99%E8%A8%BA%E6%96%AD%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"
-             class="inline-flex items-center justify-center min-h-[52px] px-7 rounded-md bg-accent text-white font-bold hover:bg-accent-dark transition shadow-card"
-             aria-label="無料診断を予約する（メール送信）">
-            無料診断を予約する
+          <button type="button"
+                  data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                  class="inline-flex items-center justify-center min-h-[52px] px-7 rounded-md bg-accent text-white font-bold hover:bg-accent-dark transition shadow-card"
+                  aria-label="お問い合わせフォームを開く">
+            お問い合わせ
             <svg class="ml-2 w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L13.586 11H3a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-          </a>
+          </button>
           <a href="#service"
              class="inline-flex items-center justify-center min-h-[52px] px-7 rounded-md border border-ink/20 text-ink font-bold hover:border-accent hover:text-accent transition">
             サービス詳細を見る
@@ -333,12 +338,13 @@
         </p>
 
         <div class="mt-9 md:mt-12">
-          <a href="mailto:jumpei_kondo@chabi.jp?subject=Chabi%E7%84%A1%E6%96%99%E8%A8%BA%E6%96%AD%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B"
-             class="inline-flex items-center justify-center min-h-[60px] px-10 rounded-md bg-accent text-white font-bold text-lg hover:bg-accent-dark transition shadow-card"
-             aria-label="無料診断について、メールで問い合わせる">
-            メールで問い合わせる
+          <button type="button"
+                  data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                  class="inline-flex items-center justify-center min-h-[60px] px-10 rounded-md bg-accent text-white font-bold text-lg hover:bg-accent-dark transition shadow-card"
+                  aria-label="お問い合わせフォームを開く">
+            お問い合わせ
             <svg class="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L13.586 11H3a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-          </a>
+          </button>
           <p class="mt-4 text-sm text-muted">
             jumpei_kondo@chabi.jp
           </p>
