@@ -6,7 +6,6 @@
   <title>Chabi｜御社のAI活用 第1号事例を、一緒に作ります</title>
   <meta name="description" content="AI導入支援とAIセミナー。ヒアリング起点 × 構造化 × AI実装の三本柱で、御社のAI活用を「事例」になるまで伴走します。" />
 
-  <!-- OGP -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Chabi｜御社のAI活用 第1号事例を、一緒に作ります" />
   <meta property="og:description" content="AI導入支援とAIセミナー。ヒアリング起点 × 構造化 × AI実装の三本柱で、御社のAI活用を「事例」になるまで伴走します。" />
@@ -16,44 +15,45 @@
   <meta property="og:locale" content="ja_JP" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicon (inline SVG, "C" monogram) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231d88b8'/%3E%3Ctext x='50' y='73' font-family='-apple-system,BlinkMacSystemFont,sans-serif' font-size='68' font-weight='900' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231D82B6'/%3E%3Ctext x='50' y='73' font-family='-apple-system,BlinkMacSystemFont,sans-serif' font-size='68' font-weight='900' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            base: '#f1ebdd',
+            base: '#ffffff',
             ink: '#0f0f0f',
-            accent: '#1d88b8',
-            'accent-dark': '#176f96',
+            accent: '#1D82B6',
+            'accent-dark': '#156a94',
             muted: '#6b6b6b',
-            line: '#e6dfce',
+            line: '#e8eef3',
+            'surface-soft': '#f4f9fc',
+            'surface-gray': '#f0f2f5',
+            'pop-orange': '#f4845f',
+            'pop-pink': '#f4a4b8',
           },
           fontFamily: {
             sans: ['"Noto Sans JP"', 'sans-serif'],
             num: ['Inter', 'sans-serif'],
+            hand: ['Caveat', 'cursive'],
           },
-          maxWidth: {
-            container: '1100px',
-          },
+          maxWidth: { container: '1100px' },
           boxShadow: {
-            card: '0 6px 24px -8px rgba(15,15,15,0.10), 0 2px 6px -2px rgba(15,15,15,0.06)',
+            card: '0 8px 28px -6px rgba(29, 130, 182, 0.12), 0 4px 12px -4px rgba(15, 15, 15, 0.06)',
+            pop: '0 6px 0 0 rgba(29, 130, 182, 0.15), 0 10px 24px -8px rgba(29, 130, 182, 0.2)',
+            'pop-soft': '0 4px 14px -2px rgba(244, 164, 184, 0.35), 0 2px 6px -2px rgba(15, 15, 15, 0.05)',
           },
         },
       },
     };
   </script>
 
-  <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,11 +71,10 @@
 
   <style>
     :root {
-      --color-base: #f1ebdd;
+      --color-base: #ffffff;
       --color-text: #0f0f0f;
-      --color-accent: #1d88b8;
-      --color-white: #ffffff;
-      --color-muted: #6b6b6b;
+      --color-accent: #1D82B6;
+      --color-pop-orange: #f4845f;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -83,293 +82,615 @@
       color: var(--color-text);
       background: var(--color-base);
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
+    @media (max-width: 767px) { body { padding-bottom: 72px; } }
+
     .num { font-family: 'Inter', sans-serif; font-feature-settings: 'tnum'; }
     .heading { font-weight: 900; letter-spacing: -0.01em; }
-    /* Japanese-friendly line breaking: avoid breaking inside katakana words and clauses */
     h1, h2, h3, p { word-break: keep-all; line-break: strict; overflow-wrap: break-word; }
-    /* Section anchor offset for sticky header */
-    section[id] { scroll-margin-top: 72px; }
+    section[id] { scroll-margin-top: 64px; }
 
-    /* Brand monogram */
-    .chabi-monogram {
-      height: 32px;
-      width: auto;
-      display: block;
+    .wm-title { position: relative; text-align: center; padding: 2.25rem 1rem 1rem; }
+    .wm-title__bg {
+      position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%);
+      font-size: clamp(2.5rem, 10vw, 3.5rem); font-weight: 900; letter-spacing: 0.06em;
+      color: rgba(15, 15, 15, 0.05); white-space: nowrap; pointer-events: none;
     }
-    @media (max-width: 767px) {
-      .chabi-monogram { height: 24px; }
+    .wm-title__text { position: relative; z-index: 1; }
+    .wm-title__underline {
+      box-decoration-break: clone;
+      background: linear-gradient(transparent 62%, var(--color-pop-orange) 62%);
+    }
+
+    .section-eyebrow {
+      font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.35rem;
+      color: var(--color-accent); text-align: center;
+    }
+
+    .step-num {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      font-weight: 900; font-size: 1.25rem;
+    }
+    .step-num::before, .step-num::after {
+      content: ''; width: 1.5rem; height: 3px; background: currentColor; border-radius: 2px;
+    }
+
+    .bubble-card {
+      position: relative; background: #fff; border-radius: 1.5rem;
+      padding: 1.1rem 0.9rem; text-align: center;
+      box-shadow: 0 6px 0 0 #e8eef3, 0 10px 20px -10px rgba(15, 15, 15, 0.08);
+      border: 1px solid #e8eef3;
+    }
+    .bubble-card::after {
+      content: ''; position: absolute; bottom: -9px; left: 50%; transform: translateX(-50%);
+      border-left: 9px solid transparent; border-right: 9px solid transparent;
+      border-top: 9px solid #fff;
+    }
+
+    .feature-card {
+      background: #fff; border-radius: 1.5rem; border: 1px solid #e8eef3;
+      padding: 1.25rem; box-shadow: 0 6px 0 0 #e8eef3, 0 12px 28px -12px rgba(29, 130, 182, 0.15);
+    }
+
+    .illus-zone {
+      min-height: 180px; display: flex; align-items: center; justify-content: center;
+      border-radius: 1.25rem;
+      background: linear-gradient(160deg, #f4f9fc 0%, #fff 55%, #fef6f3 100%);
+      border: 2px dashed rgba(29, 130, 182, 0.18);
+      position: relative; overflow: hidden;
+    }
+
+    .hex-stat {
+      width: 120px; min-width: 120px; height: 136px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: #fff; border: 2px solid #e8eef3;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; box-shadow: 0 8px 24px -8px rgba(29, 130, 182, 0.15);
+    }
+
+    .btn-cta {
+      background: var(--color-pop-orange);
+      box-shadow: 0 6px 0 0 rgba(224, 109, 69, 0.4), 0 10px 28px -6px rgba(244, 132, 95, 0.45);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .btn-cta:hover { background: #e06d45; transform: translateY(-1px); }
+
+    .chevron-band {
+      height: 24px;
+      background: linear-gradient(to bottom right, #f0f2f5 49.5%, transparent 50%) top left / 50% 100% no-repeat,
+                  linear-gradient(to bottom left, #f0f2f5 49.5%, transparent 50%) top right / 50% 100% no-repeat;
+    }
+    .chevron-band--white {
+      background: linear-gradient(to bottom right, #fff 49.5%, transparent 50%) top left / 50% 100% no-repeat,
+                  linear-gradient(to bottom left, #fff 49.5%, transparent 50%) top right / 50% 100% no-repeat;
+    }
+
+    .ba-panel { border-radius: 1.5rem; padding: 1.25rem; }
+    .ba-badge {
+      display: inline-block; padding: 0.35rem 1.25rem; border-radius: 9999px;
+      font-size: 0.7rem; font-weight: 900; letter-spacing: 0.12em;
+    }
+
+    .chabi-monogram { height: 28px; width: auto; display: block; }
+    @media (min-width: 768px) { .chabi-monogram { height: 32px; } }
+
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+      padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom));
+      background: linear-gradient(to top, rgba(255,255,255,0.98) 70%, transparent);
     }
   </style>
 
-  <!-- Tally form popup embed -->
   <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body class="bg-base text-ink">
 
-  <!-- Header (sticky, minimal) -->
-  <header class="sticky top-0 z-40 backdrop-blur bg-base/80 border-b border-line">
-    <div class="max-w-container mx-auto px-5 md:px-8 h-[64px] flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2.5" aria-label="Chabi トップへ">
-        <img src="/assets/jp_monogram_icon.svg" alt="" class="chabi-monogram" aria-hidden="true" />
-        <span class="heading text-lg tracking-wide">Chabi</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-7 text-sm">
-        <a href="#service" class="hover:text-accent transition">サービス</a>
-        <a href="#results" class="hover:text-accent transition">実績</a>
-        <a href="#about" class="hover:text-accent transition">代表について</a>
-        <a href="#contact" class="hover:text-accent transition">お問い合わせ</a>
-      </nav>
-      <button type="button"
-              data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
-              class="hidden md:inline-flex items-center px-4 py-2 rounded-md bg-accent text-white text-sm font-bold hover:bg-accent-dark transition">
-        お問い合わせ
-      </button>
-    </div>
-  </header>
+  <!-- ============================== MOBILE (sm) ============================== -->
+  <div class="block md:hidden">
 
-  <!-- Hero -->
-  <section id="top" class="bg-base">
-    <div class="max-w-container mx-auto px-5 md:px-8 pt-16 pb-12 md:pt-28 md:pb-24">
-      <div class="grid md:grid-cols-[1.35fr_1fr] gap-10 md:gap-14 items-center">
-        <!-- Left: Text -->
-        <div>
-        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-5 md:mb-6">AI CONSULTING ／ AI SEMINAR</p>
-        <h1 class="heading text-[32px] leading-[1.25] md:text-[56px] md:leading-[1.2]">
-          御社のAI活用 <span class="text-accent">第1号事例</span>を、<br />
-          一緒に作ります。
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-line">
+      <div class="max-w-[480px] mx-auto px-4 h-14 flex items-center justify-between">
+        <a href="#top" class="flex items-center gap-2" aria-label="Chabi トップへ">
+          <img src="/assets/jp_monogram_icon.svg" alt="" class="chabi-monogram" aria-hidden="true" />
+          <span class="heading text-base text-accent">Chabi</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="max-w-[480px] mx-auto">
+
+      <!-- ① Hero -->
+      <section id="top" class="px-4 pt-8 pb-10 bg-base">
+        <p class="text-accent font-bold text-[11px] tracking-[0.2em] mb-4 text-center">AI CONSULTING ／ AI SEMINAR</p>
+        <h1 class="heading text-[28px] leading-[1.3] text-center">
+          御社のAI活用 <span class="text-accent">第1号事例</span>を、<br />一緒に作ります。
         </h1>
-        <div class="mt-7 md:mt-9 space-y-2 text-base md:text-lg text-ink/80">
+        <div class="mt-5 space-y-2 text-sm text-center text-ink/80">
           <p class="font-bold">AI導入支援 ／ AIセミナー</p>
           <p>ヒアリング起点 <span class="text-accent font-bold">×</span> 構造化 <span class="text-accent font-bold">×</span> AI実装</p>
         </div>
+        <div class="illus-zone mt-8" aria-label="イラスト配置エリア（ダミー）">
+          <div class="absolute w-32 h-32 rounded-full bg-pop-pink/30 -top-6 -right-4" aria-hidden="true"></div>
+          <div class="absolute w-24 h-24 rounded-full bg-accent/10 bottom-0 left-2" aria-hidden="true"></div>
+          <svg class="relative z-10 w-48" viewBox="0 0 240 160" fill="none" aria-hidden="true">
+            <circle cx="60" cy="80" r="32" fill="#1D82B6" opacity="0.2"/>
+            <circle cx="120" cy="55" r="24" fill="#f4845f" opacity="0.35"/>
+            <rect x="150" y="40" width="70" height="90" rx="16" fill="#fff" stroke="#1D82B6" stroke-width="2"/>
+            <path d="M165 65h40M165 80h30M165 95h22" stroke="#1D82B6" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M30 120 Q80 90 130 110 T200 95" stroke="#f4a4b8" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="mt-8 space-y-3">
+          <button type="button" data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                  class="w-full min-h-[54px] rounded-3xl btn-cta text-white font-bold flex items-center justify-center" aria-label="お問い合わせフォームを開く">お問い合わせ</button>
+          <a href="#service" class="w-full min-h-[54px] rounded-3xl border-2 border-accent/20 bg-white font-bold flex items-center justify-center shadow-pop-soft">サービス詳細を見る</a>
+        </div>
+        <p class="mt-6 text-center text-xs text-muted">千葉県拠点 ／ 全国オンライン対応</p>
+      </section>
 
-        <div class="mt-9 md:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <button type="button"
-                  data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
-                  class="inline-flex items-center justify-center min-h-[52px] px-7 rounded-md bg-accent text-white font-bold hover:bg-accent-dark transition shadow-card"
-                  aria-label="お問い合わせフォームを開く">
-            お問い合わせ
-            <svg class="ml-2 w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L13.586 11H3a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-          </button>
-          <a href="#service"
-             class="inline-flex items-center justify-center min-h-[52px] px-7 rounded-md border border-ink/20 text-ink font-bold hover:border-accent hover:text-accent transition">
-            サービス詳細を見る
-          </a>
+      <div class="chevron-band" aria-hidden="true"></div>
+
+      <!-- ② Problem 課題提起 -->
+      <section id="problems" class="bg-surface-gray px-4 py-10">
+        <div class="text-center">
+          <p class="font-hand text-xl text-accent">\ PROBLEM /</p>
+          <h2 class="heading text-xl mt-1 leading-snug">こんなお悩み、<br />ありませんか？</h2>
+        </div>
+        <div class="mt-8 space-y-3">
+          <div class="bubble-card text-sm leading-relaxed text-left">「ChatGPTを導入したのに、社内で使われていない…」</div>
+          <div class="bubble-card text-sm leading-relaxed text-left">「AI活用したいけど、何から始めればいいかわからない」</div>
+          <div class="bubble-card text-sm leading-relaxed text-left">「研修を受けても、現場でなかなか定着しない」</div>
+          <div class="bubble-card text-sm leading-relaxed text-left">「日々の業務が忙しくて、AI検討に時間が取れない」</div>
+        </div>
+      </section>
+
+      <div class="chevron-band chevron-band--white" aria-hidden="true"></div>
+
+      <!-- ③ Service: 2本柱 + 共通の進め方 -->
+      <section id="service" class="px-4 py-10 bg-base">
+        <div class="text-center">
+          <p class="font-hand text-xl text-accent">\ SERVICE /</p>
+          <h2 class="heading text-xl mt-1">2つのサービスで伴走します</h2>
         </div>
 
-        <div class="mt-10 md:mt-14 flex items-center gap-3 text-xs md:text-sm text-muted">
-          <span class="inline-block w-8 h-px bg-muted/50"></span>
-          <span>千葉県拠点 ／ 全国オンライン対応</span>
-        </div>
-        </div><!-- /Left -->
-
-        <!-- Right: Image -->
-        <div class="relative rounded-lg overflow-hidden shadow-card aspect-[4/3] md:aspect-auto md:self-stretch md:min-h-[480px] order-first md:order-none">
-          <img src="/assets/hero.jpg"
-               alt="ノートPCと手書きノートが置かれた木目のデスク（コンサルティングの作業風景）"
-               width="1400" height="934"
-               loading="eager" fetchpriority="high"
-               class="absolute inset-0 w-full h-full object-cover"
-               style="filter: sepia(15%) saturate(0.9) brightness(0.97);" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service -->
-  <section id="service" class="bg-white">
-    <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
-      <div class="max-w-3xl">
-        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-3">SERVICE</p>
-        <h2 class="heading text-2xl md:text-4xl leading-tight">2本柱で、AI活用を<br />「事例」になるまで伴走します</h2>
-      </div>
-
-      <div class="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        <!-- Card 1: Seminar -->
-        <article class="bg-base rounded-xl shadow-card p-7 md:p-10 flex flex-col">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">01</span>
-            <p class="text-sm font-bold text-accent">AI SEMINAR</p>
+        <!-- Pillar 01: AI Seminar -->
+        <article class="feature-card mt-8 text-left">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="num inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-accent text-white font-black">01</span>
+            <p class="text-xs font-bold text-accent tracking-[0.2em]">AI SEMINAR</p>
           </div>
-          <h3 class="heading text-xl md:text-2xl leading-snug">実務者向け AIセミナー（全3回）</h3>
-          <p class="mt-4 text-ink/80 leading-relaxed">
+          <h3 class="heading text-lg">実務者向け AIセミナー（全3回）</h3>
+          <p class="mt-3 text-sm text-ink/75 leading-relaxed">
             セキュリティ → 4象限分類 → AI導入順序 の3回シリーズ。AI活用の前提条件から実装判断までを、現場で使える形で定着させます。
           </p>
-          <div class="mt-6 pt-5 border-t border-line">
+          <div class="mt-4 pt-4 border-t border-line">
             <p class="text-xs text-muted font-bold tracking-widest mb-1">対象</p>
-            <p class="text-sm text-ink">中小企業・自治体・個人事業主</p>
+            <p class="text-sm font-bold">中小企業・自治体・個人事業主</p>
           </div>
         </article>
 
-        <!-- Card 2: Consulting -->
-        <article class="bg-base rounded-xl shadow-card p-7 md:p-10 flex flex-col">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">02</span>
-            <p class="text-sm font-bold text-accent">AI CONSULTING</p>
+        <!-- Pillar 02: AI Consulting -->
+        <article class="feature-card mt-5 text-left">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="num inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-accent text-white font-black">02</span>
+            <p class="text-xs font-bold text-accent tracking-[0.2em]">AI CONSULTING</p>
           </div>
-          <h3 class="heading text-xl md:text-2xl leading-snug">導入後活用支援 AIコンサルティング</h3>
-          <p class="mt-4 text-ink/80 leading-relaxed">
+          <h3 class="heading text-lg">導入後活用支援 AIコンサルティング</h3>
+          <p class="mt-3 text-sm text-ink/75 leading-relaxed">
             「ChatGPTを導入したのに使われていない」を解消する伴走型コンサルティング。ヒアリングから実装まで、AI活用文化が根付くまで伴走します。
           </p>
-          <div class="mt-6 pt-5 border-t border-line">
+          <div class="mt-4 pt-4 border-t border-line">
             <p class="text-xs text-muted font-bold tracking-widest mb-1">対象</p>
-            <p class="text-sm text-ink">AI導入済 or 導入予定の中小企業・自治体</p>
+            <p class="text-sm font-bold">AI導入済 or 導入予定の中小企業・自治体</p>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- Results -->
-  <section id="results" class="bg-base">
-    <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
-      <div class="max-w-3xl">
-        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-3">RESULTS</p>
-        <h2 class="heading text-2xl md:text-4xl leading-tight">実績｜数字で語る伴走の成果</h2>
-        <p class="mt-5 text-base md:text-lg text-ink/80">
-          米国の人材紹介事業者（4名体制）／ 候補者対応業務のAI活用支援
-        </p>
-      </div>
-
-      <!-- Numbers -->
-      <div class="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-        <!-- Card 1: TIME SAVED -->
-        <div class="bg-white rounded-xl shadow-card p-7 md:p-8">
-          <p class="text-xs font-bold tracking-[0.2em] text-muted">TIME SAVED</p>
-          <p class="num mt-5 text-5xl md:text-6xl font-extrabold text-accent leading-none">−40<span class="text-3xl md:text-4xl align-top">%</span></p>
-          <p class="mt-5 text-base font-black text-ink">1面談あたり 作業時間</p>
-          <p class="mt-2 text-sm text-ink/80">150 分 → 90 分</p>
-          <p class="mt-1 text-xs text-muted">前後対応 AI化による削減</p>
+        <!-- 共通の進め方: 3-step -->
+        <div class="mt-10 text-center">
+          <p class="font-hand text-base text-accent">\ HOW WE WORK /</p>
+          <h3 class="heading text-lg mt-1">共通の進め方</h3>
+          <p class="text-xs text-muted mt-1">どちらのサービスもこの3ステップで伴走します</p>
         </div>
-        <!-- Card 2: CAPACITY -->
-        <div class="bg-white rounded-xl shadow-card p-7 md:p-8">
-          <p class="text-xs font-bold tracking-[0.2em] text-muted">CAPACITY</p>
-          <p class="num mt-5 text-5xl md:text-6xl font-extrabold text-accent leading-none whitespace-nowrap">10<span class="text-3xl md:text-4xl text-ink/40 align-middle mx-2">→</span>16<span class="text-3xl md:text-4xl align-top ml-1 font-sans">件</span></p>
-          <p class="mt-5 text-base font-black text-ink">面談枠（週）</p>
-          <p class="mt-2 text-sm text-ink/80">+6 件/週 ／ +288 件/年</p>
-          <p class="mt-1 text-xs text-muted">稼働率 +60%</p>
-        </div>
-        <!-- Card 3: ANNUAL ROI -->
-        <div class="bg-white rounded-xl shadow-card p-7 md:p-8">
-          <p class="text-xs font-bold tracking-[0.2em] text-muted">ANNUAL ROI</p>
-          <p class="num mt-5 text-5xl md:text-6xl font-extrabold text-accent leading-none">27.5<span class="text-3xl md:text-4xl align-top ml-1 font-sans">倍</span></p>
-          <p class="mt-5 text-base font-black text-ink">年間ROI / 売上機会</p>
-          <p class="mt-2 text-sm text-ink/80">$117,700 ÷ 投資 $4,272</p>
-        </div>
-      </div>
-
-      <!-- Approach -->
-      <div class="mt-10 md:mt-14">
-        <p class="text-xs font-bold tracking-widest text-muted mb-5">APPROACH</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          <article class="bg-white rounded-xl shadow-card p-7 md:p-8">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="num inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">01</span>
-              <h3 class="heading text-base md:text-lg text-ink">ヒアリング起点</h3>
+        <div class="mt-5 space-y-3">
+          <div class="bg-surface-soft rounded-2xl border border-line p-4 flex items-start gap-3">
+            <div class="shrink-0 num inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent text-white font-black text-sm">01</div>
+            <div>
+              <p class="heading text-base">ヒアリング起点</p>
+              <p class="text-xs text-ink/70 mt-1 leading-relaxed">お困りの業務についてお伺いし、業務の棚卸しを実施。</p>
             </div>
-            <p class="text-sm text-ink/70 leading-relaxed">
-              お困りの業務についてお伺いし、業務の棚卸しを実施。
-            </p>
-          </article>
-          <article class="bg-white rounded-xl shadow-card p-7 md:p-8">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="num inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">02</span>
-              <h3 class="heading text-base md:text-lg text-ink">構造化</h3>
+          </div>
+          <div class="bg-surface-soft rounded-2xl border border-line p-4 flex items-start gap-3">
+            <div class="shrink-0 num inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent text-white font-black text-sm">02</div>
+            <div>
+              <p class="heading text-base">構造化</p>
+              <p class="text-xs text-ink/70 mt-1 leading-relaxed">棚卸しした業務をAIで扱える形に整理。</p>
             </div>
-            <p class="text-sm text-ink/70 leading-relaxed">
-              棚卸しした業務をAIで扱える形に整理。
-            </p>
-          </article>
-          <article class="bg-white rounded-xl shadow-card p-7 md:p-8">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="num inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">03</span>
-              <h3 class="heading text-base md:text-lg text-ink">AI実装</h3>
+          </div>
+          <div class="bg-surface-soft rounded-2xl border border-line p-4 flex items-start gap-3">
+            <div class="shrink-0 num inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent text-white font-black text-sm">03</div>
+            <div>
+              <p class="heading text-base">AI実装</p>
+              <p class="text-xs text-ink/70 mt-1 leading-relaxed">設計で終わらず現場で動く形まで伴走。</p>
+              <p class="text-xs text-accent font-bold mt-1.5">Google AI Professional / Notion Essentials 認定</p>
             </div>
-            <p class="text-sm text-ink/70 leading-relaxed">
-              設計で終わらず現場で動く形まで伴走。
-            </p>
-            <p class="mt-3 text-sm text-accent font-bold leading-relaxed">
-              Google AI Professional / Notion Essentials 認定
-            </p>
-          </article>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <p class="mt-8 text-sm text-muted">
-        ※ 今年度の改善見込み値（実プロジェクトの実測ベースラインから算出）。
-      </p>
-    </div>
-  </section>
+      <div class="chevron-band" aria-hidden="true"></div>
 
-  <!-- About -->
-  <section id="about" class="bg-accent">
-    <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="text-white/90 font-bold text-xs md:text-sm tracking-[0.2em] mb-3">ABOUT</p>
-        <h2 class="heading text-2xl md:text-4xl leading-tight text-white">Chabi 代表について</h2>
+      <!-- ④ BEFORE / AFTER -->
+      <section id="why" class="bg-surface-gray px-4 py-10">
+        <div class="text-center">
+          <p class="font-hand text-xl text-accent">\ POPULARITY /</p>
+          <h2 class="heading text-xl mt-1 leading-snug">Chabi が<br /><span class="wm-title__underline">選ばれる理由</span></h2>
+        </div>
 
-        <p class="mt-8 text-base md:text-lg text-white/90 leading-loose">
-          AI導入支援 ／ AIセミナー講師 ／ 元自治体7年（業務改善）<br class="hidden md:block" />
-          マーケティングコンサルタント ／ MBA<br class="hidden md:block" />
-          Google AI Professionals 認定 ／ Notion Essentials 認定
-        </p>
-      </div>
+        <!-- BEFORE -->
+        <div class="ba-panel mt-8 bg-white border border-line">
+          <p class="text-center"><span class="ba-badge bg-ink/80 text-white">BEFORE</span></p>
+          <p class="mt-4 heading text-base text-center leading-snug">日々の業務に追われて、<br />AI活用が進まない</p>
+          <ul class="mt-5 space-y-2.5 text-sm text-ink/75">
+            <li class="flex gap-2"><span class="text-muted shrink-0">×</span><span>複数のベンダー・部門との調整に追われる</span></li>
+            <li class="flex gap-2"><span class="text-muted shrink-0">×</span><span>個別の業務対応で AI 検討の時間が取れない</span></li>
+            <li class="flex gap-2"><span class="text-muted shrink-0">×</span><span>研修を受けても、現場で活用が定着しない</span></li>
+            <li class="flex gap-2"><span class="text-muted shrink-0">×</span><span>結果、売上 UP の施策に集中できない悪循環</span></li>
+          </ul>
+        </div>
 
-    </div>
-  </section>
+        <div class="flex justify-center my-5 text-3xl text-accent" aria-hidden="true">▼</div>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-base">
-    <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
-      <div class="max-w-2xl mx-auto text-center">
-        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-3">CONTACT</p>
-        <h2 class="heading text-2xl md:text-4xl leading-tight">まずは無料診断から、お気軽に</h2>
-        <p class="mt-6 text-base md:text-lg text-ink/85 leading-relaxed">
+        <!-- AFTER -->
+        <div class="ba-panel bg-pop-orange text-white shadow-pop">
+          <p class="text-center"><span class="ba-badge bg-ink text-white">AFTER</span></p>
+          <p class="mt-4 heading text-lg text-center leading-snug">まるごとおまかせで、<br />本来の業務に集中できる</p>
+          <ul class="mt-5 space-y-2.5 text-sm text-white">
+            <li class="flex gap-2"><span class="shrink-0">○</span><span>Chabi が AI 活用の総合窓口を担当</span></li>
+            <li class="flex gap-2"><span class="shrink-0">○</span><span>ヒアリング → 構造化 → 実装まで一気通貫で伴走</span></li>
+            <li class="flex gap-2"><span class="shrink-0">○</span><span>担当者は売上 UP の施策・商品開発に集中</span></li>
+            <li class="flex gap-2"><span class="shrink-0">○</span><span>AI 活用が事業成果につながる仕組みに</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section id="results" class="px-4 py-10 bg-base">
+        <div class="text-center">
+          <p class="font-hand text-xl text-accent">\ RESULTS /</p>
+          <h2 class="heading text-xl mt-1">実績｜<span class="wm-title__underline">数字</span>で語る伴走の成果</h2>
+        </div>
+        <p class="text-sm text-center text-ink/80 mt-3 px-1">米国の人材紹介事業者（4名体制）／ 候補者対応業務のAI活用支援</p>
+
+        <div class="mt-8 flex items-center gap-3">
+          <div class="hex-stat shrink-0">
+            <p class="text-[9px] font-bold text-muted">TIME SAVED</p>
+            <p class="num text-2xl font-extrabold text-pop-orange mt-1">−40<span class="text-sm">%</span></p>
+          </div>
+          <div class="min-w-0 text-sm">
+            <p class="font-black">1面談あたり 作業時間</p>
+            <p class="text-ink/80">150 分 → 90 分</p>
+            <p class="text-xs text-muted">前後対応 AI化による削減</p>
+          </div>
+        </div>
+        <div class="mt-6 flex items-center gap-3 flex-row-reverse">
+          <div class="hex-stat shrink-0">
+            <p class="text-[9px] font-bold text-muted">CAPACITY</p>
+            <p class="num text-lg font-extrabold text-pop-orange mt-1 whitespace-nowrap">10<span class="text-ink/40">→</span>16<span class="text-xs font-sans">件</span></p>
+          </div>
+          <div class="min-w-0 text-sm text-right">
+            <p class="font-black">面談枠（週）</p>
+            <p class="text-ink/80">+6 件/週 ／ +288 件/年</p>
+            <p class="text-xs text-muted">稼働率 +60%</p>
+          </div>
+        </div>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="hex-stat shrink-0 border-2 border-pop-pink/40">
+            <p class="text-[9px] font-bold text-muted">ANNUAL ROI</p>
+            <p class="num text-xl font-extrabold text-pop-orange mt-1">27.5<span class="text-xs font-sans">倍</span></p>
+          </div>
+          <div class="min-w-0 text-sm">
+            <p class="font-black">年間ROI / 売上機会</p>
+            <p class="text-ink/80">$117,700 ÷ 投資 $4,272</p>
+          </div>
+        </div>
+        <p class="mt-6 text-xs text-center text-muted">※ 今年度の改善見込み値（実プロジェクトの実測ベースラインから算出）。</p>
+      </section>
+
+      <!-- ⑤ Profile (white) -->
+      <section id="about" class="px-4 py-10 bg-base border-t border-line">
+        <div class="text-center">
+          <p class="font-hand text-xl text-accent">\ ABOUT /</p>
+          <h2 class="heading text-xl mt-1">Chabi 代表について</h2>
+        </div>
+        <div class="feature-card mt-6 text-center">
+          <p class="text-sm text-ink/85 leading-loose">
+            AI導入支援 ／ AIセミナー講師 ／ 元自治体7年（業務改善）<br />
+            マーケティングコンサルタント ／ MBA<br />
+            Google AI Professionals 認定 ／ Notion Essentials 認定
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="px-4 py-10 pb-12 bg-surface-soft">
+        <div class="text-center">
+          <p class="font-hand text-xl text-accent">\ CONTACT /</p>
+          <h2 class="heading text-xl mt-1 leading-snug">まずは<span class="wm-title__underline">無料診断</span>から、<br />お気軽に</h2>
+        </div>
+        <p class="text-sm text-center text-ink/85 leading-relaxed mt-4">
           御社のAI活用 第1号事例を作るための入口は「無料診断」です。<br />
           30分のオンライン or 対面ヒアリングで、御社の業務とAI活用の親和性を一緒に見極めます。
         </p>
-
-        <div class="mt-9 md:mt-12">
-          <button type="button"
-                  data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
-                  class="inline-flex items-center justify-center min-h-[60px] px-10 rounded-md bg-accent text-white font-bold text-lg hover:bg-accent-dark transition shadow-card"
-                  aria-label="お問い合わせフォームを開く">
-            お問い合わせ
-            <svg class="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L13.586 11H3a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-          </button>
-          <p class="mt-4 text-sm text-muted">
-            jumpei_kondo@chabi.jp
-          </p>
+        <div class="mt-8">
+          <button type="button" data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                  class="w-full min-h-[60px] rounded-3xl btn-cta text-white font-bold text-lg flex items-center justify-center" aria-label="お問い合わせフォームを開く">お問い合わせ</button>
+          <p class="mt-4 text-sm text-center text-muted">jumpei_kondo@chabi.jp</p>
         </div>
-
-        <div class="mt-10 md:mt-12 text-xs md:text-sm text-muted space-y-1">
+        <div class="mt-6 text-xs text-center text-muted space-y-1">
           <p>※ 返信は1営業日以内</p>
           <p>※ 対面エリア：メインは千葉県／北海道から沖縄まで全国対応します（交通費は応相談）</p>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Footer -->
-  <footer class="bg-[#e6dfce] text-ink">
-    <div class="max-w-container mx-auto px-5 md:px-8 py-10 md:py-14">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <footer class="border-t border-line px-4 py-8 pb-20 text-center">
+        <div class="flex items-center justify-center gap-2">
+          <img src="/assets/jp_monogram_icon.svg" alt="" class="chabi-monogram" aria-hidden="true" />
+          <span class="heading text-base">Chabi（チャビ）</span>
+        </div>
+        <p class="mt-2 text-sm text-ink/70">個人事業主</p>
+        <p class="text-sm text-ink/70">chabi.jp</p>
+        <p class="mt-4 text-xs text-ink/50">© 2026 Chabi</p>
+      </footer>
+    </main>
+
+    <div class="sticky-cta block md:hidden">
+      <button type="button" data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+              class="max-w-[480px] mx-auto w-full min-h-[52px] rounded-2xl bg-ink text-white font-bold text-sm flex items-center justify-center gap-2" aria-label="お問い合わせフォームを開く">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        お問合せはこちら
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================== DESKTOP (md+) ============================== -->
+  <div class="hidden md:block">
+
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-line shadow-sm">
+      <div class="max-w-container mx-auto px-8 h-16 flex items-center justify-between">
+        <a href="#top-pc" class="flex items-center gap-2.5" aria-label="Chabi トップへ">
+          <img src="/assets/jp_monogram_icon.svg" alt="" class="chabi-monogram" aria-hidden="true" />
+          <span class="heading text-lg text-accent">Chabi</span>
+        </a>
+        <nav class="flex items-center gap-8 text-sm font-medium">
+          <a href="#service-pc" class="hover:text-accent transition">サービス</a>
+          <a href="#results-pc" class="hover:text-accent transition">実績</a>
+          <a href="#about-pc" class="hover:text-accent transition">代表について</a>
+          <a href="#contact-pc" class="hover:text-accent transition">お問い合わせ</a>
+        </nav>
+        <button type="button" data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                class="px-5 py-2.5 rounded-2xl btn-cta text-white text-sm font-bold">お問い合わせ</button>
+      </div>
+    </header>
+
+    <!-- Hero PC -->
+    <section id="top-pc" class="bg-base">
+      <div class="max-w-container mx-auto px-8 py-16 grid grid-cols-2 gap-14 items-center">
+        <div>
+          <p class="text-accent font-bold text-xs tracking-[0.2em] mb-5">AI CONSULTING ／ AI SEMINAR</p>
+          <h1 class="heading text-5xl leading-[1.2]">
+            御社のAI活用 <span class="text-accent">第1号事例</span>を、<br />一緒に作ります。
+          </h1>
+          <div class="mt-8 space-y-2 text-lg text-ink/80">
+            <p class="font-bold">AI導入支援 ／ AIセミナー</p>
+            <p>ヒアリング起点 <span class="text-accent font-bold">×</span> 構造化 <span class="text-accent font-bold">×</span> AI実装</p>
+          </div>
+          <div class="mt-10 flex gap-4">
+            <button type="button" data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                    class="inline-flex items-center min-h-[56px] px-8 rounded-3xl btn-cta text-white font-bold" aria-label="お問い合わせフォームを開く">お問い合わせ</button>
+            <a href="#service-pc" class="inline-flex items-center min-h-[56px] px-8 rounded-3xl border-2 border-accent/20 font-bold hover:border-accent hover:text-accent transition">サービス詳細を見る</a>
+          </div>
+          <p class="mt-8 text-sm text-muted">千葉県拠点 ／ 全国オンライン対応</p>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-pop border-4 border-white aspect-[4/3] relative">
+          <img src="/assets/hero.jpg" alt="ノートPCと手書きノートが置かれた木目のデスク（コンサルティングの作業風景）" width="1400" height="934" loading="eager" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Problems PC -->
+    <section class="bg-surface-gray py-16">
+      <div class="max-w-container mx-auto px-8">
+        <div class="text-center mb-10">
+          <p class="font-hand text-2xl text-accent">\ PROBLEM /</p>
+          <h2 class="heading text-3xl mt-1">こんなお悩み、ありませんか？</h2>
+        </div>
+        <div class="grid grid-cols-2 gap-5 max-w-3xl mx-auto">
+          <div class="bubble-card text-sm">「ChatGPTを導入したのに、社内で使われていない…」</div>
+          <div class="bubble-card text-sm">「AI活用したいけど、何から始めればいいかわからない」</div>
+          <div class="bubble-card text-sm">「研修を受けても、現場でなかなか定着しない」</div>
+          <div class="bubble-card text-sm">「日々の業務が忙しくて、AI検討に時間が取れない」</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service PC: 2 pillars + 3-step process -->
+    <section id="service-pc" class="py-16 bg-base">
+      <div class="max-w-container mx-auto px-8">
+        <div class="text-center mb-12">
+          <p class="font-hand text-2xl text-accent">\ SERVICE /</p>
+          <h2 class="heading text-3xl mt-1">2つのサービスで伴走します</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+          <!-- Pillar 01 -->
+          <article class="feature-card text-left p-8">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="num inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-accent text-white font-black text-base">01</span>
+              <p class="text-xs font-bold text-accent tracking-[0.2em]">AI SEMINAR</p>
+            </div>
+            <h3 class="heading text-xl">実務者向け AIセミナー（全3回）</h3>
+            <p class="mt-4 text-sm text-ink/75 leading-relaxed">セキュリティ → 4象限分類 → AI導入順序 の3回シリーズ。AI活用の前提条件から実装判断までを、現場で使える形で定着させます。</p>
+            <div class="mt-5 pt-4 border-t border-line">
+              <p class="text-xs text-muted font-bold tracking-widest mb-1">対象</p>
+              <p class="text-sm font-bold">中小企業・自治体・個人事業主</p>
+            </div>
+          </article>
+
+          <!-- Pillar 02 -->
+          <article class="feature-card text-left p-8">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="num inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-accent text-white font-black text-base">02</span>
+              <p class="text-xs font-bold text-accent tracking-[0.2em]">AI CONSULTING</p>
+            </div>
+            <h3 class="heading text-xl">導入後活用支援 AIコンサルティング</h3>
+            <p class="mt-4 text-sm text-ink/75 leading-relaxed">「ChatGPTを導入したのに使われていない」を解消する伴走型コンサルティング。ヒアリングから実装まで、AI活用文化が根付くまで伴走します。</p>
+            <div class="mt-5 pt-4 border-t border-line">
+              <p class="text-xs text-muted font-bold tracking-widest mb-1">対象</p>
+              <p class="text-sm font-bold">AI導入済 or 導入予定の中小企業・自治体</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- 共通の進め方 (sub-layer) -->
+        <div class="mt-16 text-center">
+          <p class="font-hand text-xl text-accent">\ HOW WE WORK /</p>
+          <h3 class="heading text-2xl mt-1">共通の進め方</h3>
+          <p class="text-sm text-muted mt-2">どちらのサービスもこの3ステップで伴走します</p>
+        </div>
+        <div class="mt-8 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-4">
+          <div class="bg-surface-soft rounded-3xl border border-line p-6 text-center">
+            <div class="num inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-accent text-white font-black mx-auto mb-3">01</div>
+            <p class="heading text-base">ヒアリング起点</p>
+            <p class="text-xs text-ink/70 mt-2 leading-relaxed">お困りの業務についてお伺いし、業務の棚卸しを実施。</p>
+          </div>
+          <div class="text-accent text-2xl" aria-hidden="true">→</div>
+          <div class="bg-surface-soft rounded-3xl border border-line p-6 text-center">
+            <div class="num inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-accent text-white font-black mx-auto mb-3">02</div>
+            <p class="heading text-base">構造化</p>
+            <p class="text-xs text-ink/70 mt-2 leading-relaxed">棚卸しした業務をAIで扱える形に整理。</p>
+          </div>
+          <div class="text-accent text-2xl" aria-hidden="true">→</div>
+          <div class="bg-surface-soft rounded-3xl border border-line p-6 text-center">
+            <div class="num inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-accent text-white font-black mx-auto mb-3">03</div>
+            <p class="heading text-base">AI実装</p>
+            <p class="text-xs text-ink/70 mt-2 leading-relaxed">設計で終わらず現場で動く形まで伴走。</p>
+            <p class="text-xs text-accent font-bold mt-2">Google AI Professional / Notion Essentials 認定</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEFORE / AFTER PC -->
+    <section class="py-16 bg-surface-gray">
+      <div class="max-w-container mx-auto px-8">
+        <div class="text-center mb-10">
+          <p class="font-hand text-2xl text-accent">\ POPULARITY /</p>
+          <h2 class="heading text-3xl mt-1">Chabi が<span class="wm-title__underline">選ばれる理由</span></h2>
+        </div>
+        <div class="grid grid-cols-2 gap-8 items-start">
+          <div class="ba-panel bg-white border border-line shadow-card p-8">
+            <p class="text-center"><span class="ba-badge bg-ink/80 text-white">BEFORE</span></p>
+            <p class="mt-4 heading text-xl text-center leading-snug">日々の業務に追われて、<br />AI活用が進まない</p>
+            <ul class="mt-6 space-y-3 text-sm text-ink/75">
+              <li class="flex gap-2"><span class="text-muted shrink-0">×</span><span>複数のベンダー・部門との調整に追われる</span></li>
+              <li class="flex gap-2"><span class="text-muted shrink-0">×</span><span>個別の業務対応で AI 検討の時間が取れない</span></li>
+              <li class="flex gap-2"><span class="text-muted shrink-0">×</span><span>研修を受けても、現場で活用が定着しない</span></li>
+              <li class="flex gap-2"><span class="text-muted shrink-0">×</span><span>結果、売上 UP の施策に集中できない悪循環</span></li>
+            </ul>
+          </div>
+          <div class="ba-panel bg-pop-orange text-white shadow-pop p-8">
+            <p class="text-center"><span class="ba-badge bg-ink text-white">AFTER</span></p>
+            <p class="mt-4 heading text-xl text-center leading-snug">まるごとおまかせで、<br />本来の業務に集中できる</p>
+            <ul class="mt-6 space-y-3 text-sm">
+              <li class="flex gap-2"><span class="shrink-0">○</span><span>Chabi が AI 活用の総合窓口を担当</span></li>
+              <li class="flex gap-2"><span class="shrink-0">○</span><span>ヒアリング → 構造化 → 実装まで一気通貫で伴走</span></li>
+              <li class="flex gap-2"><span class="shrink-0">○</span><span>担当者は売上 UP の施策・商品開発に集中</span></li>
+              <li class="flex gap-2"><span class="shrink-0">○</span><span>AI 活用が事業成果につながる仕組みに</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results PC: 3 columns -->
+    <section id="results-pc" class="py-16 bg-base">
+      <div class="max-w-container mx-auto px-8">
+        <div class="text-center mb-4">
+          <p class="font-hand text-2xl text-accent">\ RESULTS /</p>
+          <h2 class="heading text-3xl mt-1">実績｜<span class="wm-title__underline">数字</span>で語る伴走の成果</h2>
+        </div>
+        <p class="text-center text-ink/80 mt-4">米国の人材紹介事業者（4名体制）／ 候補者対応業務のAI活用支援</p>
+        <div class="mt-12 grid grid-cols-3 gap-8">
+          <div class="bg-white rounded-3xl shadow-card border border-line p-8 text-center">
+            <p class="text-xs font-bold text-muted tracking-widest">TIME SAVED</p>
+            <p class="num mt-4 text-6xl font-extrabold text-accent">−40<span class="text-3xl">%</span></p>
+            <p class="mt-5 font-black">1面談あたり 作業時間</p>
+            <p class="mt-2 text-sm text-ink/80">150 分 → 90 分</p>
+            <p class="text-xs text-muted mt-1">前後対応 AI化による削減</p>
+          </div>
+          <div class="bg-white rounded-3xl shadow-card border border-line p-8 text-center">
+            <p class="text-xs font-bold text-muted tracking-widest">CAPACITY</p>
+            <p class="num mt-4 text-6xl font-extrabold text-accent whitespace-nowrap">10<span class="text-3xl text-ink/40 mx-2">→</span>16<span class="text-3xl font-sans ml-1">件</span></p>
+            <p class="mt-5 font-black">面談枠（週）</p>
+            <p class="mt-2 text-sm text-ink/80">+6 件/週 ／ +288 件/年</p>
+            <p class="text-xs text-muted mt-1">稼働率 +60%</p>
+          </div>
+          <div class="bg-white rounded-3xl shadow-card border-2 border-pop-pink/40 p-8 text-center shadow-pop-soft">
+            <p class="text-xs font-bold text-muted tracking-widest">ANNUAL ROI</p>
+            <p class="num mt-4 text-6xl font-extrabold text-accent">27.5<span class="text-3xl font-sans ml-1">倍</span></p>
+            <p class="mt-5 font-black">年間ROI / 売上機会</p>
+            <p class="mt-2 text-sm text-ink/80">$117,700 ÷ 投資 $4,272</p>
+          </div>
+        </div>
+        <p class="mt-8 text-sm text-center text-muted">※ 今年度の改善見込み値（実プロジェクトの実測ベースラインから算出）。</p>
+      </div>
+    </section>
+
+    <!-- About + Contact PC -->
+    <section id="about-pc" class="py-16 bg-surface-soft">
+      <div class="max-w-container mx-auto px-8 grid grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="font-hand text-2xl text-accent">\ ABOUT /</p>
+          <h2 class="heading text-3xl mt-1">Chabi 代表について</h2>
+          <div class="feature-card mt-8 text-left">
+            <p class="text-base text-ink/85 leading-loose">
+              AI導入支援 ／ AIセミナー講師 ／ 元自治体7年（業務改善）<br />
+              マーケティングコンサルタント ／ MBA<br />
+              Google AI Professionals 認定 ／ Notion Essentials 認定
+            </p>
+          </div>
+        </div>
+        <div id="contact-pc">
+          <p class="font-hand text-2xl text-accent">\ CONTACT /</p>
+          <h2 class="heading text-3xl mt-1">まずは<span class="wm-title__underline">無料診断</span>から、お気軽に</h2>
+          <p class="mt-5 text-ink/85 leading-relaxed">
+            御社のAI活用 第1号事例を作るための入口は「無料診断」です。<br />
+            30分のオンライン or 対面ヒアリングで、御社の業務とAI活用の親和性を一緒に見極めます。
+          </p>
+          <button type="button" data-tally-open="pbJr8b" data-tally-layout="modal" data-tally-width="700" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                  class="mt-8 inline-flex items-center min-h-[64px] px-12 rounded-3xl btn-cta text-white font-bold text-lg" aria-label="お問い合わせフォームを開く">お問い合わせ</button>
+          <p class="mt-4 text-sm text-muted">jumpei_kondo@chabi.jp</p>
+          <div class="mt-6 text-xs text-muted space-y-1">
+            <p>※ 返信は1営業日以内</p>
+            <p>※ 対面エリア：メインは千葉県／北海道から沖縄まで全国対応します（交通費は応相談）</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-line bg-white">
+      <div class="max-w-container mx-auto px-8 py-12 flex items-end justify-between">
         <div>
           <div class="flex items-center gap-2.5">
             <img src="/assets/jp_monogram_icon.svg" alt="" class="chabi-monogram" aria-hidden="true" />
             <span class="heading text-lg">Chabi（チャビ）</span>
           </div>
           <p class="mt-3 text-sm text-ink/70">個人事業主</p>
-          <p class="mt-1 text-sm text-ink/70">chabi.jp</p>
+          <p class="text-sm text-ink/70">chabi.jp</p>
         </div>
-        <div class="text-sm text-ink/60">
-          © 2026 Chabi
-        </div>
+        <p class="text-sm text-ink/50">© 2026 Chabi</p>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
 </body>
 </html>
