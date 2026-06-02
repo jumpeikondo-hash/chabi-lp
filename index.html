@@ -166,12 +166,13 @@
         </div><!-- /Left -->
 
         <!-- Right: Image -->
-        <div class="relative rounded-2xl overflow-hidden shadow-card aspect-[4/3] md:aspect-auto md:self-stretch md:min-h-[480px] order-first md:order-none">
+        <div class="relative rounded-lg overflow-hidden shadow-card aspect-[4/3] md:aspect-auto md:self-stretch md:min-h-[480px] order-first md:order-none">
           <img src="/assets/hero.jpg"
                alt="ノートPCと手書きノートが置かれた木目のデスク（コンサルティングの作業風景）"
                width="1400" height="934"
                loading="eager" fetchpriority="high"
-               class="absolute inset-0 w-full h-full object-cover" />
+               class="absolute inset-0 w-full h-full object-cover"
+               style="filter: sepia(15%) saturate(0.9) brightness(0.97);" />
         </div>
       </div>
     </div>
@@ -260,41 +261,39 @@
       </div>
 
       <!-- Approach -->
-      <div class="mt-10 md:mt-14 bg-white rounded-xl shadow-card p-7 md:p-10">
-        <p class="text-xs font-bold tracking-widest text-muted mb-6 md:mb-8">APPROACH</p>
-        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-8 md:gap-6">
-          <div class="text-center">
-            <div class="flex flex-col items-center justify-center w-36 h-36 md:w-40 md:h-40 rounded-full border-2 border-accent/40 mx-auto">
-              <p class="num text-xl md:text-2xl font-extrabold text-accent leading-none">01</p>
-              <p class="mt-2 heading text-base md:text-lg text-ink leading-tight px-3">ヒアリング起点</p>
+      <div class="mt-10 md:mt-14">
+        <p class="text-xs font-bold tracking-widest text-muted mb-5">APPROACH</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          <article class="bg-white rounded-xl shadow-card p-7 md:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="num inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">01</span>
+              <h3 class="heading text-base md:text-lg text-ink">ヒアリング起点</h3>
             </div>
-            <p class="mt-5 text-sm text-ink/70 leading-relaxed">
+            <p class="text-sm text-ink/70 leading-relaxed">
               お困りの業務についてお伺いし、業務の棚卸しを実施。
             </p>
-          </div>
-          <div class="text-center text-accent/40 text-xl hidden md:block mt-16" aria-hidden="true">→</div>
-          <div class="text-center">
-            <div class="flex flex-col items-center justify-center w-36 h-36 md:w-40 md:h-40 rounded-full border-2 border-accent/40 mx-auto">
-              <p class="num text-xl md:text-2xl font-extrabold text-accent leading-none">02</p>
-              <p class="mt-2 heading text-base md:text-lg text-ink leading-tight px-3">構造化</p>
+          </article>
+          <article class="bg-white rounded-xl shadow-card p-7 md:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="num inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">02</span>
+              <h3 class="heading text-base md:text-lg text-ink">構造化</h3>
             </div>
-            <p class="mt-5 text-sm text-ink/70 leading-relaxed">
+            <p class="text-sm text-ink/70 leading-relaxed">
               棚卸しした業務をAIで扱える形に整理。
             </p>
-          </div>
-          <div class="text-center text-accent/40 text-xl hidden md:block mt-16" aria-hidden="true">→</div>
-          <div class="text-center">
-            <div class="flex flex-col items-center justify-center w-36 h-36 md:w-40 md:h-40 rounded-full border-2 border-accent/40 mx-auto">
-              <p class="num text-xl md:text-2xl font-extrabold text-accent leading-none">03</p>
-              <p class="mt-2 heading text-base md:text-lg text-ink leading-tight px-3">AI実装</p>
+          </article>
+          <article class="bg-white rounded-xl shadow-card p-7 md:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="num inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-white font-black">03</span>
+              <h3 class="heading text-base md:text-lg text-ink">AI実装</h3>
             </div>
-            <p class="mt-5 text-sm text-ink/70 leading-relaxed">
+            <p class="text-sm text-ink/70 leading-relaxed">
               設計で終わらず現場で動く形まで伴走。
             </p>
-            <p class="mt-2 text-sm text-accent font-bold leading-relaxed">
+            <p class="mt-3 text-sm text-accent font-bold leading-relaxed">
               Google AI Professional / Notion Essentials 認定
             </p>
-          </div>
+          </article>
         </div>
       </div>
 
@@ -305,13 +304,13 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="bg-white">
+  <section id="about" class="bg-accent">
     <div class="max-w-container mx-auto px-5 md:px-8 py-12 md:py-20">
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-accent font-bold text-xs md:text-sm tracking-[0.2em] mb-3">ABOUT</p>
-        <h2 class="heading text-2xl md:text-4xl leading-tight">Chabi 代表について</h2>
+        <p class="text-white/90 font-bold text-xs md:text-sm tracking-[0.2em] mb-3">ABOUT</p>
+        <h2 class="heading text-2xl md:text-4xl leading-tight text-white">Chabi 代表について</h2>
 
-        <p class="mt-8 text-base md:text-lg text-ink/85 leading-loose">
+        <p class="mt-8 text-base md:text-lg text-white/90 leading-loose">
           AI導入支援 ／ AIセミナー講師 ／ 元自治体7年（業務改善）<br class="hidden md:block" />
           マーケティングコンサルタント ／ MBA<br class="hidden md:block" />
           Google AI Professionals 認定 ／ Notion Essentials 認定
