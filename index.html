@@ -140,14 +140,6 @@
       position: relative; overflow: hidden;
     }
 
-    .hex-stat {
-      width: 120px; min-width: 120px; height: 136px;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      background: #fff; border: 2px solid #e8eef3;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; box-shadow: 0 8px 24px -8px rgba(29, 130, 182, 0.15);
-    }
-
     .btn-cta {
       background: var(--color-pop-orange);
       box-shadow: 0 6px 0 0 rgba(224, 109, 69, 0.4), 0 10px 28px -6px rgba(244, 132, 95, 0.45);
@@ -342,36 +334,29 @@
         </div>
         <p class="text-sm text-center text-ink/80 mt-3 px-1">米国の人材紹介事業者（4名体制）／ 候補者対応業務のAI活用支援</p>
 
-        <div class="mt-8 flex items-center gap-3">
-          <div class="hex-stat shrink-0">
-            <p class="text-[9px] font-bold text-muted">TIME SAVED</p>
-            <p class="num text-2xl font-extrabold text-pop-orange mt-1">−40<span class="text-sm">%</span></p>
+        <div class="mt-8 space-y-4">
+          <!-- Card 1: TIME SAVED -->
+          <div class="bg-white rounded-2xl border border-line p-5 shadow-card">
+            <p class="text-[10px] font-bold text-muted tracking-widest">TIME SAVED</p>
+            <p class="num mt-2 text-4xl font-extrabold text-pop-orange leading-none">−40<span class="text-2xl align-top">%</span></p>
+            <p class="mt-4 font-black text-base text-ink">1面談あたり 作業時間</p>
+            <p class="mt-1 text-sm text-ink/80">150 分 → 90 分</p>
+            <p class="mt-1 text-xs text-muted">前後対応 AI化による削減</p>
           </div>
-          <div class="min-w-0 text-sm">
-            <p class="font-black">1面談あたり 作業時間</p>
-            <p class="text-ink/80">150 分 → 90 分</p>
-            <p class="text-xs text-muted">前後対応 AI化による削減</p>
+          <!-- Card 2: CAPACITY -->
+          <div class="bg-white rounded-2xl border border-line p-5 shadow-card">
+            <p class="text-[10px] font-bold text-muted tracking-widest">CAPACITY</p>
+            <p class="num mt-2 text-4xl font-extrabold text-pop-orange leading-none whitespace-nowrap">10<span class="text-ink/40 mx-1">→</span>16<span class="text-2xl font-sans align-top ml-1">件</span></p>
+            <p class="mt-4 font-black text-base text-ink">面談枠（週）</p>
+            <p class="mt-1 text-sm text-ink/80">+6 件/週 ／ +288 件/年</p>
+            <p class="mt-1 text-xs text-muted">稼働率 +60%</p>
           </div>
-        </div>
-        <div class="mt-6 flex items-center gap-3 flex-row-reverse">
-          <div class="hex-stat shrink-0">
-            <p class="text-[9px] font-bold text-muted">CAPACITY</p>
-            <p class="num text-lg font-extrabold text-pop-orange mt-1 whitespace-nowrap">10<span class="text-ink/40">→</span>16<span class="text-xs font-sans">件</span></p>
-          </div>
-          <div class="min-w-0 text-sm text-right">
-            <p class="font-black">面談枠（週）</p>
-            <p class="text-ink/80">+6 件/週 ／ +288 件/年</p>
-            <p class="text-xs text-muted">稼働率 +60%</p>
-          </div>
-        </div>
-        <div class="mt-6 flex items-center gap-3">
-          <div class="hex-stat shrink-0 border-2 border-pop-pink/40">
-            <p class="text-[9px] font-bold text-muted">ANNUAL ROI</p>
-            <p class="num text-xl font-extrabold text-pop-orange mt-1">27.5<span class="text-xs font-sans">倍</span></p>
-          </div>
-          <div class="min-w-0 text-sm">
-            <p class="font-black">年間ROI / 売上機会</p>
-            <p class="text-ink/80">$117,700 ÷ 投資 $4,272</p>
+          <!-- Card 3: ANNUAL ROI -->
+          <div class="bg-white rounded-2xl border-2 border-pop-pink/40 p-5 shadow-pop-soft">
+            <p class="text-[10px] font-bold text-muted tracking-widest">ANNUAL ROI</p>
+            <p class="num mt-2 text-4xl font-extrabold text-pop-orange leading-none">27.5<span class="text-2xl font-sans align-top ml-1">倍</span></p>
+            <p class="mt-4 font-black text-base text-ink">年間ROI / 売上機会</p>
+            <p class="mt-1 text-sm text-ink/80">$117,700 ÷ 投資 $4,272</p>
           </div>
         </div>
         <p class="mt-6 text-xs text-center text-muted">※ 今年度の改善見込み値（実プロジェクトの実測ベースラインから算出）。</p>
